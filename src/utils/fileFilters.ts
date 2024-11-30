@@ -1,7 +1,7 @@
 export function createDefaultFilter() {
   return {
-    include: ['.js', '.ts', '.vue', '.css', '.html'],
-    exclude: ['node_modules', '.git', 'dist'],
+    include: ['js', 'jsx', 'ts', 'tsx', 'vue', 'css', 'scss', 'html', 'md', 'json'],
+    exclude: ['node_modules', '.git', 'dist', 'build'],
     folders: [],
   }
 }
@@ -28,5 +28,5 @@ export function matchesFilter(path: string, filename: string, filter: { include:
   }
 
   // Check if file matches any include patterns
-  return filter.include.some(ext => filename.toLowerCase().endsWith(ext))
+  return filter.include.some(ext => filename.toLowerCase().endsWith(`.${ext}`))
 }
